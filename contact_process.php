@@ -1,37 +1,43 @@
 <?php
 
-    $to = "spn8@spondonit.com";
-    $from = $_REQUEST['email'];
-    $name = $_REQUEST['name'];
-    $subject = $_REQUEST['subject'];
-    $number = $_REQUEST['number'];
-    $cmessage = $_REQUEST['message'];
+use PHPMailer\PHPMailer\PHPMailer;
 
-    $headers = "From: $from";
-	$headers = "From: " . $from . "\r\n";
-	$headers .= "Reply-To: ". $from . "\r\n";
-	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+require 'PHPMailer/src/Exception.php';
+	require 'PHPMailer/src/OAuth.php';
+	require 'PHPMailer/src/PHPMailer.php';
+	require 'PHPMailer/src/POP3.php';
+	require 'PHPMailer/src/SMTP.php';
 
-    $subject = "You have a message from your Bitmap Photography.";
+	require 'PHPMailer/get_oauth_token.php';
 
-    $logo = 'img/logo.png';
-    $link = '#';
+	//initilialization
 
-	$body = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Express Mail</title></head><body>";
-	$body .= "<table style='width: 100%;'>";
-	$body .= "<thead style='text-align: center;'><tr><td style='border:none;' colspan='2'>";
-	$body .= "<a href='{$link}'><img src='{$logo}' alt=''></a><br><br>";
-	$body .= "</td></tr></thead><tbody><tr>";
-	$body .= "<td style='border:none;'><strong>Name:</strong> {$name}</td>";
-	$body .= "<td style='border:none;'><strong>Email:</strong> {$from}</td>";
-	$body .= "</tr>";
-	$body .= "<tr><td style='border:none;'><strong>Subject:</strong> {$csubject}</td></tr>";
-	$body .= "<tr><td></td></tr>";
-	$body .= "<tr><td colspan='2' style='border:none;'>{$cmessage}</td></tr>";
-	$body .= "</tbody></table>";
-	$body .= "</body></html>";
+	$mail = new PHPMailer();
 
-    $send = mail($to, $subject, $body, $headers);
+	try{
+		 //Server settings                    // Enable verbose debug output
+		 $mail->isSMTP();                                            // Send using SMTP
+		 $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+		 $mail->SMTPAuth   = true;     
+		 $mail->SMTPSecure = 'ssl';                              // Enable SMTP authentication                            															
+		 $mail->Port       = '465';  
+		 $mail->isHTML();
+		 $mail->Username = 'akilaliyanagelive@gmail.com';
+		 $mail->Password = 'Akila2133@';                                // TCP port to connect to
+
+		//Recipients
+		$mail->setFrom('akilaliyanagelive@gmail.com');          // Name is optional
+		$mail->Subject = 'Website Messages';
+		$mail->Body = "testmail";
+		$mail->addAddress('mlakilaliyanage@gmail.com');
+	
+	
+		$mail->send();
+		echo 'Message has been sent';
+	}
+
+	catch(Exception $e){
+		echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+	}
 
 ?>
