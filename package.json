@@ -1,0 +1,24 @@
+{
+  "name": "www.akilaliyanage.live",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "lax": "^0.0.40",
+    "lax.js": "^1.2.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akilaliyanage/personalSite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akilaliyanage/personalSite/issues"
+  },
+  "homepage": "https://github.com/akilaliyanage/personalSite#readme"
+}
