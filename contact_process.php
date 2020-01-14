@@ -23,7 +23,7 @@ require 'PHPMailer/src/Exception.php';
 		 $mail->Port       = '465';  
 		 $mail->isHTML();
 		 $mail->Username = 'akilaliyanagelive@gmail.com';
-		 $mail->Password = 'Akila2133@';                                // TCP port to connect to
+		 $mail->Password = '';                                // TCP port to connect to
 
 		//Recipients
 		$mail->setFrom('akilaliyanagelive@gmail.com');          // Name is optional
