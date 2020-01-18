@@ -499,6 +499,15 @@
             reset:true
         });
     </script>
+
+    <script>
+        document.addEventListener('contextmenu', event);
+
+        function event(e){
+            e.preventDefault();
+            alert("haha!!! You can't right click here :) ");
+        }
+    </script>
 </body>
 
 </html>
