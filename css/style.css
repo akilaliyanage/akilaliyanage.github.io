@@ -36,13 +36,9 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
+    overflow-x: hidden;
 }
-.dark-mode {
-  filter: invert(1) hue-rotate(180deg);
-}
-.invert {
-  filter: invert(1) hue-rotate(180deg);
-}
+
 
 *,
 *::before,
@@ -583,6 +579,14 @@ pre code {
 }
 
 .container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.containerNew {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
